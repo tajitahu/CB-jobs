@@ -1,0 +1,104 @@
+.bg-gray-900 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(17 24 39) !important;
+}
+.d-none{
+    display: none;
+}
+.bg-brand-primary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(188 33 50 / var(--tw-bg-opacity));
+}
+.btn-transparent{
+	background-color: none;
+}
+.p-5{
+    padding: 20px;
+}
+.home_career,.home_career .btn{
+	color: white !important;
+	font-weight: 300;
+}
+.home_career_left_content{
+	max-width: 400px !important;
+}
+.home_career_left_content h4{
+	max-width: 300px;
+}
+.text-left{
+	text-align: left !important;
+}
+.font-semibold {
+    font-weight: 600;
+}
+.text-gray-400 {
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+.signUpBtn{
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+}
+.btn{
+    border: 1px solid #0000;
+    border-radius: 0.25rem;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    padding: 0.65rem 1.25rem;
+    text-align: center;
+    transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    -webkit-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.signUpPage {
+    width:50%;
+    left: 50%;
+}
+.g-stepper svg {
+    width: 60px;
+    height: 60px;
+    
+  }
+  
+  .g-stepper > div > div {
+    top: 30px;
+    width: calc(100% - 60px);
+    left: auto;
+    right: calc(50% + 30px);
+    position: absolute;
+   
+  }
+  
+  .g-stepper > div:last-child > div {
+    left: calc(-50% + 30px);
+    width: calc(100% - 60px);
+    right: auto;
+   
+  }
+  .dashboard-page {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Set the height to the viewport height */
+  }
+  
+  .center-content {
+    text-align: center; /* Center the content horizontally */
+  }
+  small{
+    font-size: 14px;
+  }
+  .login-links {
+    color: #aba5b6;
+    font-size: 1.1rem;
+    font-weight: 400;
+}

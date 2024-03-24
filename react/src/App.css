@@ -1,0 +1,41 @@
+.bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(17 24 39) !important;
+}
+.d-none{
+  display: none;
+}
+.bg-brand-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgb(188 33 50 / var(--tw-bg-opacity));
+}
+.btn-transparent{
+background-color: none;
+}
+.p-5{
+  padding: 20px;
+}
+.home_career,.home_career .btn{
+color: white !important;
+font-weight: 300;
+}
+.home_career_left_content{
+max-width: 400px !important;
+}
+.home_career_left_content h4{
+max-width: 300px;
+}
+.text-left{
+text-align: left !important;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}

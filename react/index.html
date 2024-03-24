@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cambiz-Jobs</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+
+   <!-- Google font-->
+   <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+
+   <!-- themify -->
+   <link rel="stylesheet" type="text/css" href="assets/assets/icon/themify-icons/themify-icons.css">
+
+   <!-- iconfont -->
+   <link rel="stylesheet" type="text/css" href="assets/assets/icon/icofont/css/icofont.css">
+
+   <!-- simple line icon -->
+   <link rel="stylesheet" type="text/css" href="assets/assets/icon/simple-line-icons/css/simple-line-icons.css">
+
+   <!-- Required Fremwork -->
+   <link rel="stylesheet" type="text/css" href="assets/assets/plugins/bootstrap/css/bootstrap.min.css">
+
+   <!-- Chartlist chart css -->
+   <link rel="stylesheet" href="assets/assets/plugins/chartist/dist/chartist.css" type="text/css" media="all">
+
+   <!-- Weather css -->
+   <link href="assets/assets/css/svg-weather.css" rel="stylesheet">
+
+   <!-- Style.css -->
+  
+
+   <!-- Responsive.css-->
+   <link rel="stylesheet" type="text/css" href="assets/assets/css/responsive.css">
+
+   <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+<script src="/assets/js/index.js" ></script>
+  </head>
+  <body class="sidebar-mini fixed">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+
+     <!-- Required Jqurey -->
+   <script src="assets/assets/plugins/Jquery/dist/jquery.min.js"></script>
+   <script src="assets/assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+   <script src="assets/assets/plugins/tether/dist/js/tether.min.js"></script>
+
+   <!-- Required Fremwork -->
+   <script src="assets/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+   <!-- Scrollbar JS-->
+   <script src="assets/assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+   <script src="assets/assets/plugins/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+
+   <!--classic JS-->
+   <script src="assets/assets/plugins/classie/classie.js"></script>
+
+   <!-- notification -->
+   <script src="assets/assets/plugins/notification/js/bootstrap-growl.min.js"></script>
+
+   <!-- Sparkline charts -->
+   <script src="assets/assets/plugins/jquery-sparkline/dist/jquery.sparkline.js"></script>
+
+   <!-- Counter js  -->
+   <script src="assets/assets/plugins/waypoints/jquery.waypoints.min.js"></script>
+   <script src="assets/assets/plugins/countdown/js/jquery.counterup.js"></script>
+
+   <!-- Echart js -->
+   <script src="assets/assets/plugins/charts/echarts/js/echarts-all.js"></script>
+
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="https://code.highcharts.com/modules/exporting.js"></script>
+   <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+   <!-- custom js -->
+   <script type="text/javascript" src="assets/assets/js/main.min.js"></script>
+   <script type="text/javascript" src="assets/assets/pages/dashboard.js"></script>
+   <script type="text/javascript" src="assets/assets/pages/elements.js"></script>
+   <script src="assets/assets/js/menu.min.js"></script>
+<script>
+var $window = $(window);
+var nav = $('.fixed-button');
+$window.scroll(function(){
+    if ($window.scrollTop() >= 200) {
+       nav.addClass('active');
+    }
+    else {
+       nav.removeClass('active');
+    }
+});
+</script>
+  </body>
+</html>
