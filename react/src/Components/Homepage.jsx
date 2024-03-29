@@ -26,7 +26,7 @@ export default function HomePage(){
 <main class="home">
     <section class="home__lid">
         <div class="def-width">
-            <h1 >Welcome to Cambiz Jobs!</h1>
+            <h1 >Welcome to Cambizs Jobs!</h1>
            
             <ul class="flex">
                 <li><img src="assets/images/svg/l1.svg" width="40" height="40" alt="" />Create profile</li>
@@ -40,7 +40,7 @@ export default function HomePage(){
                     <span class="showed-text">register now</span>
                 </a>
             </div>
-            <p style={{marginTop:"0px"}}><small>Join Cambiz Jobs today and experience a seamless and supportive platform for all your employment needs!</small></p>
+            <p style={{marginTop:"0px"}}><small>Join Cambiz Jobs today and experience a seamless and supportive platform for all your employment & Training needs!</small></p>
 
             <span class="wheel_down"></span>
         </div>
@@ -143,8 +143,8 @@ export default function HomePage(){
         <div class="def-width">
             <div class="like-h1 flex"><img src=" assets/images/search_icon.png" width="61" height="61" class="retina" alt="" />Currently We are<span> in Search </span>of:</div>
             <ul>
-                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Native English speakers</strong> for orders that are  to be completed by writers whose First language is English.</li>
-                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Writers with English as the Second language.</strong> That would be a plus if you are proficient in the following industries:</li>
+                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Native English & French speakers</strong> for orders that are  to be completed by writers whose First language is English or French.</li>
+                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Writers with English or French as the Second language.</strong> That would be a plus if you are proficient in the following industries:</li>
             </ul>
     
 <div class="home__currently-content roll-up flex">
@@ -179,7 +179,7 @@ export default function HomePage(){
     <div class="inner">
         <div class="register_now_text">
             <span>Don't waste your time!</span>
-            <span>Start your Journey to getting your Career Now</span>
+            <span>Start your Journey, get a Career Now</span>
         </div>
         <div class="register_now_btn">
             <div class="home__lid-butn">
@@ -194,14 +194,14 @@ export default function HomePage(){
             <div class="like-h1">Our Statistics</div>
             <div class="home__stat-content flex">
                 <div class="home__stat-left">
-                    <p>Did you know that</p>
+                    <p>Did you know that...</p>
                     <hr/>
                     <div class="home__stat-circle">
                     </div>
                     <p>of our clients are loyal and do not look for other sources of income</p>
                 </div>
                 <div class="home__stat-right">
-                    <p>A number of clients at <br />AfricaJobsCenter is growing since 2008</p>
+                    <p>A number of clients at <br />JobsCentre Africa are growing since 2012</p>
                     <div class="home__stat-right-wrapper">
                         <div class="home__stat-right-cont">
                             <ul>
@@ -217,10 +217,6 @@ export default function HomePage(){
                             </ul>
                             <img src=" assets/images/chart.png" width="450" height="236" class="retina" alt="" />
                             <ul class="flex">
-                                <li>2008</li>
-                                <li>2009</li>
-                                <li>2010</li>
-                                <li>2011</li>
                                 <li>2012</li>
                                 <li>2013</li>
                                 <li>2014</li>
@@ -230,13 +226,17 @@ export default function HomePage(){
                                 <li>2018</li>
                                 <li>2019</li>
                                 <li>2020</li>
+                                <li>2021</li>
+                                <li>2022</li>
+                                <li>2023</li>
+                                <li>2024</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="home__seo-text-content">
-                <h1>CAMBIZ JOBS!</h1>
+                <h1>CAMBIZS JOBS!</h1>
                 <p>
 
                 Our website is a comprehensive platform designed to cater to the needs of employers, job seekers, agents, freelancers, and Africa job centers. We offer a range of services and features to facilitate efficient operations and effective communication among our users.                </p>
