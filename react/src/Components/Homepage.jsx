@@ -1,7 +1,14 @@
 import React,{useState} from 'react';
-import { useModal } from '../Context/ContextProvider';
+import { useStateContext } from '../Context/ContextProvider';
 import RegistrationModal from '../Containers/modals/RegistrationModal.jsx';
 import { Link, NavLink } from 'react-router-dom';
+import Slider from './slider.jsx';
+import SearchForm from './searchform.jsx';
+import CoursesSection from './coursesSection.jsx';
+import CountersSection from './CounterSection.jsx';
+import AcademicSection from './AcademicSection.jsx';
+import PastPapersAndBooksSection from './PastPapersAndBooksSection.jsx';
+import CourseDetails from './CourseDetails.jsx';
 export default function HomePage(){
 
     const [modalOpen, setModalOpen] = useState(false);
@@ -26,7 +33,8 @@ export default function HomePage(){
 <main class="home">
     <section class="home__lid">
         <div class="def-width">
-            <h1 >Welcome to Cambizs Jobs!</h1>
+        
+            <h1 >Welcome to Cambiz Jobs!</h1>
            
             <ul class="flex">
                 <li><img src="assets/images/svg/l1.svg" width="40" height="40" alt="" />Create profile</li>
@@ -39,17 +47,20 @@ export default function HomePage(){
                 <a onClick={handleOpenModal} href="#" class="butn butn-yellow">
                     <span class="showed-text">register now</span>
                 </a>
+             <NavLink to="/signup/agent" className="jobcenter-african butn butn-yellow ml-2">Jobcenter Africa</NavLink>
             </div>
-            <p style={{marginTop:"0px"}}><small>Join Cambiz Jobs today and experience a seamless and supportive platform for all your employment & Training needs!</small></p>
-
+            <p style={{marginTop:"0px"}}><small>Join Cambiz Jobs today and experience a seamless and supportive platform for all your employment needs!</small></p>
+            <SearchForm />
+            <Slider />
             <span class="wheel_down"></span>
         </div>
     </section>
-
-    <section class="bg-gray-900 p-5 home_career home__offer">
+    <CoursesSection />
+   
+    <section class="bg-gray-900 p-5 home_career home__offer mt-5" style={{paddingLeft:"100px"}}>
         <div class="row">
             <div class="col-md-7">
-                <div class="home_career_left_content">
+                <div class="home_career_left_content ">
                     <h3 class="text-left font-semibold">Advance your career with CamBiz Jobs</h3>
                     <p class="mt-3 text-gray-400 text-lg">Create a free account, complete your profile,and get matched with your dream job.</p>
                     <div class="flex mt-5">
@@ -103,48 +114,14 @@ export default function HomePage(){
             </div>
         </div>
     </section>
-
-    <section class="home__offer1 bg-gray-900 d-none1">
-        <div class="def-width flex">
-            <div class="home__offer-left" style={{width:"100%"}}>
-                <div class="like-h1">why us?</div>
-                <ul class="flex">
-                    <li>
-                        <img src=" assets/images/svg/1.svg" alt="" />
-                        <p>Connecting Companies and Talent:</p>
-
-                    </li>
-                    <li>
-                        <img src=" assets/images/svg/2.svg" alt="" />
-                        <p>Efficient Communication Channels</p>
-                    </li>
-                    <li>
-                        <img src=" assets/images/svg/3.svg" alt="" />
-                        <p>Transparent Fee Structure</p>
-                    </li>
-                    <li>
-                        <img src=" assets/images/svg/4.svg" alt="" />
-                        <p>Clear Policies and Terms</p>
-                    </li>
-                    <li class="last">
-                        <img src=" assets/images/svg/5.svg" alt="" />
-                        <p>Personalized Advising</p>
-                    </li>
-                    <li class="last">
-                        <img src=" assets/images/svg/6.svg" alt="" />
-                        <p>Emergency Fund Support</p>
-                    </li>
-                </ul>
-            </div>
-            
-        </div>
-    </section>
-    <section class="home__currently">
+   
+    <CountersSection />
+    <section class="home__currently mt-5">
         <div class="def-width">
             <div class="like-h1 flex"><img src=" assets/images/search_icon.png" width="61" height="61" class="retina" alt="" />Currently We are<span> in Search </span>of:</div>
             <ul>
-                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Native English & French speakers</strong> for orders that are  to be completed by writers whose First language is English or French.</li>
-                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Writers with English or French as the Second language.</strong> That would be a plus if you are proficient in the following industries:</li>
+                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Native English speakers</strong> for orders that are  to be completed by writers whose First language is English.</li>
+                <li><img src=" assets/images/svg/check_icon.svg" alt="" /><strong>Writers with English as the Second language.</strong> That would be a plus if you are proficient in the following industries:</li>
             </ul>
     
 <div class="home__currently-content roll-up flex">
@@ -175,11 +152,11 @@ export default function HomePage(){
 </div>        </div>
     </section>
     
-<section class="home__register_now"   style={{backgroundImage: `url('./assets/images/img_cta@3x.png')`}}>
+<section class="home__register_now mt-5"   style={{backgroundImage: `url('./assets/images/img_cta@3x.png')`}}>
     <div class="inner">
         <div class="register_now_text">
             <span>Don't waste your time!</span>
-            <span>Start your Journey, get a Career Now</span>
+            <span>Start your Journey to getting your Career Now</span>
         </div>
         <div class="register_now_btn">
             <div class="home__lid-butn">
@@ -189,82 +166,12 @@ export default function HomePage(){
             </div>
         </div>
     </div>
-</section>    <section class="home__stat">
-        <div class="def-width">
-            <div class="like-h1">Our Statistics</div>
-            <div class="home__stat-content flex">
-                <div class="home__stat-left">
-                    <p>Did you know that...</p>
-                    <hr/>
-                    <div class="home__stat-circle">
-                    </div>
-                    <p>of our clients are loyal and do not look for other sources of income</p>
-                </div>
-                <div class="home__stat-right">
-                    <p>A number of clients at <br />JobsCentre Africa are growing since 2012</p>
-                    <div class="home__stat-right-wrapper">
-                        <div class="home__stat-right-cont">
-                            <ul>
-                                <li>5000</li>
-                                <li>4375</li>
-                                <li>3750</li>
-                                <li>3125</li>
-                                <li>2500</li>
-                                <li>1875</li>
-                                <li>1250</li>
-                                <li>625</li>
-                                <li>0</li>
-                            </ul>
-                            <img src=" assets/images/chart.png" width="450" height="236" class="retina" alt="" />
-                            <ul class="flex">
-                                <li>2012</li>
-                                <li>2013</li>
-                                <li>2014</li>
-                                <li>2015</li>
-                                <li>2016</li>
-                                <li>2017</li>
-                                <li>2018</li>
-                                <li>2019</li>
-                                <li>2020</li>
-                                <li>2021</li>
-                                <li>2022</li>
-                                <li>2023</li>
-                                <li>2024</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="home__seo-text-content">
-                <h1>CAMBIZS JOBS!</h1>
-                <p>
-
-                Our website is a comprehensive platform designed to cater to the needs of employers, job seekers, agents, freelancers, and Africa job centers. We offer a range of services and features to facilitate efficient operations and effective communication among our users.                </p>
-                {readMore && (  <div >
-                   
-                   <p>
-                   For employers, our platform provides a streamlined process for finding suitable job seekers and managing their operations seamlessly. Employers can post job advertisements, manage applications, and communicate with potential candidates efficiently.                    </p>
-                  <p>
-
-                  Our website is a comprehensive platform designed to cater to the needs of employers, job seekers, agents, freelancers, and Africa job centers. We offer a range of services and features to facilitate efficient operations and effective communication among our users.
-
-For employers, our platform provides a streamlined process for finding suitable job seekers and managing their operations seamlessly. Employers can post job advertisements, manage applications, and communicate with potential candidates efficiently.
-
-Job seekers benefit from our platform by gaining access to a wide range of job opportunities. We provide assistance in developing their CVs, offer loans for transportation during job search periods, and support them in settling into new jobs by providing loans for relocation expenses.                   </p>
-
-                 <p>
-                 Agents play a crucial role on our platform, connecting employers with job seekers and facilitating smooth transactions. They have access to tools and resources to manage their operations effectively and enhance communication with their clients.                  </p>
-               
-                 <p><Link to="/blog" href="#seo-text-read-more" class="read-more-link">Read More ...</Link></p>
-               </div> )}
-                {!readMore && (  <p><span class="read-more-link" onClick={toggleReadMore}>Read More ...</span></p> )}
-                
-            </div>
-        </div>
-    </section>
-   
+</section> 
+<AcademicSection />   
+<PastPapersAndBooksSection />
+  
 </main>
-<section class="newsletter">
+<section class="newsletter mt-5">
     <div class="def-width">
         <div class="newsletter-inner-wrap">
             <div class="newsletter-inner">

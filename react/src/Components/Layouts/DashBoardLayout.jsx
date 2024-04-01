@@ -1,12 +1,42 @@
 
 import React,{useEffect,useRef  } from 'react';
-
+import {useStateContext} from "../../Context/ContextProvider";
 
 import $ from 'jquery';
 import 'jquery-slimscroll';
 import Logo from '../ui/logo';
+import { NavLink, Navigate } from 'react-router-dom';
+import { logoutUser } from '../../redux/userSlice';
+import { useDispatch } from 'react-redux';
 const DashBoardLayout = ({ children }) => {
     
+   const {user, token, setUser, setToken, notification} = useStateContext();
+   const dispatch = useDispatch();
+   if (!token) {
+     return <Navigate to="/login"/>
+   }
+   
+
+   const handleLogout = () => {
+      
+      dispatch(logoutUser())
+      .then((response) => {
+       
+          if (response.payload) {
+            setUser(null);
+            setToken(null);
+         
+          } else if (response.error) {
+           alert('Logout Failed!')
+          }
+      });
+   };
+
+   // ...
+
+   useEffect(() => {
+      // Your code here
+   }, []);
    useEffect(() => {
       // Your JavaScript code here
       $.pushMenu = {
@@ -162,8 +192,8 @@ const DashBoardLayout = ({ children }) => {
                   <li class="dropdown">
                      <a href="#!" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle drop icon-circle drop-image">
                         <span><img class="img-circle " src="assets/assets/images/avatar-1.png" style={{width:"40px"}} alt="User Image" /></span>
-                        <span>John <b>Doe</b> <i class=" icofont icofont-simple-down"></i></span>
-
+                        <span>{user.usr_firstname} <b></b> <i class=" icofont icofont-simple-down"></i></span>
+                        
                      </a>
                      <ul class="dropdown-menu settings-menu">
                         <li><a href="#!"><i class="icon-settings"></i> Settings</a></li>
@@ -173,7 +203,7 @@ const DashBoardLayout = ({ children }) => {
                            <div class="dropdown-divider m-0"></div>
                         </li>
                         <li><a href="#"><i class="icon-lock"></i> Lock Screen</a></li>
-                        <li><a href="login1.html"><i class="icon-logout"></i> Logout</a></li>
+                        <li><a onClick={handleLogout}><i class="icon-logout"></i> Logout</a></li>
 
                      </ul>
                   </li>
@@ -238,51 +268,60 @@ const DashBoardLayout = ({ children }) => {
             
             <ul class="sidebar-menu">
                 <li class="nav-level">--- Navigation</li>
+               
                 <li class="active treeview">
-                    <a class="waves-effect waves-dark" href="index.html">
+                 <NavLink to="/dashboard">
+                  <a class="waves-effect waves-dark">
                         <i class="icon-speedometer"></i><span> Dashboard</span>
-                    </a>                
+                  </a>
+                  </NavLink>          
                 </li>
-                <li class="nav-level">--- Components</li>
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> EMPLOYERS</span><i class="icon-arrow-down"></i></a>
+                
+               {user.usr_type === 'employee' && (<li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-briefcase"></i><span> EMPLOYERS</span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">
                         <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Listing</a></li>
                         <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
                         <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
                         
                     </ul>
-                </li>
-
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span>  JOBSCENTER AFRICA</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Listing</a></li>
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
-                        <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
-                        
-                    </ul>
-                </li>
-
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> JOB SEEKER</span><i class="icon-arrow-down"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Jobs</a></li>
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
-                        <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
-                        
-                    </ul>
-                </li>
-                <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> TRAINING PROVIDER</span><i class="icon-arrow-down"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> List Cources</a></li>
-                        <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
-                        <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
-                        
-                    </ul>
-                </li>
+                </li>)}
+                
+               {user.user_type==='agent' && (
+                  <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-chart"></i><span>  JOBSCENTER AFRICA</span><span class="label label-success menu-caption">New</span><i class="icon-arrow-down"></i></a>
+                     <ul class="treeview-menu">
+                         <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Listing</a></li>
+                         <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
+                         <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
+                         
+                     </ul>
+                 </li>
+               )}
+                
+               {user.user_type==='job-seeker' && (
+                  <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> JOB SEEKER</span><i class="icon-arrow-down"></i></a>
+                  <ul class="treeview-menu">
+                      <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Jobs</a></li>
+                      <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
+                      <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
+                      
+                  </ul>
+              </li>
+               )}
+                {user.usr_type === 'training-provider' && ( 
+                     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> TRAINING PROVIDER</span><i class="icon-arrow-down"></i></a>
+                     <ul class="treeview-menu">
+                         <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> List Cources</a></li>
+                         <li><a class="waves-effect waves-dark" href="#"><i class="icon-arrow-right"></i> Proposals</a></li>
+                         <li><a class="waves-effect waves-dark" href="l#"><i class="icon-arrow-right"></i> Subscribe</a></li>
+                         
+                     </ul>
+                 </li>
+                )}
                 
                 
+                
 
 
-                <li class="nav-level">--- More</li>
 
                 <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-docs"></i><span>Pages</span><i class="icon-arrow-down"></i></a>
                     <ul class="treeview-menu">

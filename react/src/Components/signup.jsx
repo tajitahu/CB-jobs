@@ -24,8 +24,10 @@ import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-
-
+import useRegisterUser from '../redux/useRegisterUser';
+import { registerUser } from '../redux/userSlice';
+import { useStateContext } from '../Context/ContextProvider';
+import { useDispatch } from 'react-redux';
 const CustomStepIcon = withStyles({
     root: {
       '&$active': {
@@ -120,14 +122,24 @@ const SignUpPage = () => {
   const [type, setType] = useState('');
   const [trainingOptions, setTrainingOptions] = useState([]);
   const [gender, setGender] = useState('');
-
+  const register=useRegisterUser();
   const navigate = useNavigate();
-
+  const { setToken,setUser } = useStateContext();
+  const dispatch = useDispatch();
+  const { userType } = useParams();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
+    country: '',
+    phoneNumber: '',
+    countryCode: '',
+    type:userType,
+    phone:'',
+    trainingOptions: [],  
+    gender: '',
+   
     // Add more fields as needed
   });
 
@@ -137,10 +149,8 @@ const SignUpPage = () => {
   };
 
 
-  const { userType } = useParams();
-  const handleOpen = () => {
-    setOpen(true);
-  };
+  
+  
 
   const handleClose = () => {
     setOpen(false);
@@ -154,17 +164,13 @@ const SignUpPage = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleRegistration = (registrationType) => {
-    setType(registrationType);
-    handleOpen();
-  };
+  
 
   const handleTrainingChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setTrainingOptions((prevOptions) => [...prevOptions, value]);
+    if (event.target.checked) {
+      setTrainingOptions([...trainingOptions, event.target.value]);
     } else {
-      setTrainingOptions((prevOptions) => prevOptions.filter((option) => option !== value));
+      setTrainingOptions(trainingOptions.filter(option => option !== event.target.value));
     }
   };
 
@@ -172,25 +178,26 @@ const SignUpPage = () => {
     
     // Validate form fields before setting the cookie
     if (formData.firstName && formData.lastName && formData.email && formData.password) {
+      // Register the user
+    formData.trainingOptions = trainingOptions;
+     dispatch(registerUser(formData))
+     .then((response) => {
+         if (response.payload) {
+          setToken(response.payload.token);
+          setUser(response.payload.user);
+          alert('Registration successful!')
+          console.log(formData.trainingOptions)
+         } else {
+          console.log(response)
+          alert('Registration Failed!')
+         }
+     });
      
-      // Show Toastr notification
-      toast.success('Registration successful!', {
-        autoClose: 3000, // 3 seconds
-        onClose: () => {
-          // Clear form data and redirect after Toastr disappears
-          setFormData({
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-          });
-          navigate('/login'); // Redirect to login page
-        },
-      });
     } else {
-      toast.error('Please fill in all required fields.');
+   
+      alert('Please fill in all required fields.');
     }
-  };
+  }
 
   return (
     <Container maxWidth="md" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -294,8 +301,8 @@ const SignUpPage = () => {
                   <RadioGroup
                     aria-label="gender"
                     name="gender"
-                    value={gender}
-                    onChange={(e) => setGender(e.target.value)}
+                    value={formData.gender}
+                    onChange={handleChange}
                   >
                     <FormControlLabel
                       value="male"
@@ -341,7 +348,7 @@ const SignUpPage = () => {
                           paddingBottom: '10px', // Increase bottom padding
                         },
                       }}
-                      value={formData.phoneNumber}
+                      value={formData.phone}
                       onChange={handleChange}
                     required
                   />

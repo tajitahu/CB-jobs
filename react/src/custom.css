@@ -1,3 +1,7 @@
+@import url('https://fonts.cdnfonts.com/css/lazer-game-zone');
+:root {
+  --font-lazzer: 'Lazer game', sans-serif;
+}
 .bg-gray-900 {
     --tw-bg-opacity: 1;
     background-color: rgba(17 24 39) !important;
@@ -102,3 +106,56 @@
     font-size: 1.1rem;
     font-weight: 400;
 }
+
+.jobcenter-african {
+ margin-left: 10px;
+  animation: colorChange 2s infinite;
+}
+@keyframes colorChange {
+  0% {
+    border-top: 3px solid #ea00ff;
+    border-left: 3px solid #ff0000;
+    border-bottom: 3px solid #0000ff;
+    border-right: 3px solid #00ff00;
+    
+  }
+  25% {
+    border-top: 3px solid #00ff00;
+    border-left: 3px solid #ea00ff;
+    border-bottom: 3px solid #ff0000;
+    border-right: 3px solid #0000ff;
+  }
+  50% {
+    border-top: 3px solid #0000ff;
+    border-left: 3px solid #00ff00;
+    border-bottom: 3px solid #ea00ff;
+    border-right: 3px solid #ff0000;
+  }
+  75% {
+    border-top: 3px solid #ff0000;
+    border-left: 3px solid #0000ff;
+    border-bottom: 3px solid #00ff00;
+    border-right: 3px solid #ea00ff;
+  }
+  100% {
+    border-top: 3px solid #ea00ff;
+    border-left: 3px solid #ff0000;
+    border-bottom: 3px solid #0000ff;
+    border-right: 3px solid #00ff00;
+  }
+}
+section{
+  margin-top: 40px !important;
+}
+body{
+  overflow-y: auto !important;
+}
+.section{
+  margin-top: 40px !important;
+}
+.pastspapers-section {
+  background-color: #f6f7fb;
+  min-height: 714px;
+  position: relative;
+}
+

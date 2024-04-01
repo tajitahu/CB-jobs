@@ -1,0 +1,34 @@
+# Enable mod_rewrite
+RewriteEngine On
+
+# Set the base path if your React app is not in the root directory
+# RewriteBase /
+
+# Redirect requests to the index.html file (for React Router)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L]
+
+# Set caching headers for static assets (adjust the expiration time as needed)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# Enable Gzip compression for faster content delivery
+<IfModule mod_deflate.c>
+  <IfModule mod_filter.c>
+    AddOutputFilterByType DEFLATE "application/javascript"
+    AddOutputFilterByType DEFLATE "text/css"
+  </IfModule>
+</IfModule>
+
+# Set security headers to enhance security
+<IfModule mod_headers.c>
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

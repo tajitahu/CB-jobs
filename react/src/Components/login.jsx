@@ -4,25 +4,44 @@ import { useNavigate } from 'react-router-dom';
 import Logo from './ui/logo';
 import { TextField ,Box,Button,Container}  from '@mui/material'
 import { Link } from 'react-router-dom';
+import { loginUser } from '../redux/userSlice';
+import { useStateContext } from '../Context/ContextProvider';
+import { useDispatch } from 'react-redux';
 const Login = () => {
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
+    const { setToken,setUser } = useStateContext();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [formData, setFormData] = useState({
+      email: '',
+      password: '',
+    });
 
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prevData) => ({ ...prevData, [name]: value }));
+    };
     const handleLogin = () => {
         setLoading(true);
-        // Perform login logic here, e.g., making an API call
-
-        // Simulating a successful login
-        setTimeout(() => {
-            setLoading(false);
-            // Store user data in cookie
-            document.cookie = 'userData=your_user_data_here; path=/';
-            // Redirect to dashboard
-            navigate('/dashboard');
-        }, 2000);
+        if (formData.usr_email && formData.password) {
+          // Register the user
+         dispatch(loginUser(formData))
+         .then((response) => {
+             if (response.payload) {
+              setToken(response.payload.token);
+              setUser(response.payload.user);
+              alert('Registration successful!')
+             } else if (response.error) {
+              alert('Registration Failed!')
+             }
+         });
+         
+        } else {
+         alert('Please fill in all required fields.');
+        }
     };
 
     return (
@@ -47,8 +66,9 @@ const Login = () => {
       <TextField
         type="email"
         label="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        name="usr_email"
+        value={formData.usr_email}
+        onChange={handleChange}
         fullWidth  // Make the TextField take entire width
         sx={{
           '& .MuiInputBase-input': {
@@ -61,8 +81,9 @@ const Login = () => {
       <TextField
         type="password"
         label="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
         fullWidth  // Make the TextField take entire width
         sx={{
           '& .MuiInputBase-input': {

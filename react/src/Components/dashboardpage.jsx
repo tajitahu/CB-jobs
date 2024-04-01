@@ -2,8 +2,13 @@
 
 import React from 'react';
 import Logo from './ui/logo';
-
+import userSlice from '../redux/userSlice';
+import {useStateContext} from "../Context/ContextProvider";
 const DashboardPage = () => {
+   const {user, token, setUser, setToken, notification} = useStateContext();
+
+   const coursesCount=JSON.parse(user.usr_courses).length;
+  
     return (
         <div class="content-wrapper">
       
@@ -17,8 +22,8 @@ const DashboardPage = () => {
            <div class="row dashboard-header">
               <div class="col-lg-3 col-md-6">
                  <div class="card dashboard-product">
-                    <span>Products</span>
-                    <h2 class="dashboard-total-products">4500</h2>
+                    <span>{user.usr_type ==='training-provider' ?'Courses' : 'Users'}</span>
+                    <h2 class="dashboard-total-products">{coursesCount}</h2>
                     <span class="label label-warning">Sales</span>Arriving Today
                     <div class="side-box">
                        <i class="ti-signal text-warning-color"></i>
@@ -27,7 +32,7 @@ const DashboardPage = () => {
               </div>
               <div class="col-lg-3 col-md-6">
                  <div class="card dashboard-product">
-                    <span>Products</span>
+                    <span>{user.usr_type ==='training-provider' ?'Courses' : 'Users'}</span>
                     <h2 class="dashboard-total-products">37,500</h2>
                     <span class="label label-primary">Views</span>View Today
                     <div class="side-box ">
@@ -37,17 +42,17 @@ const DashboardPage = () => {
               </div>
               <div class="col-lg-3 col-md-6">
                  <div class="card dashboard-product">
-                    <span>Products</span>
+                    <span>{user.usr_type ==='training-provider' ?'Courses' : 'Users'}</span>
                     <h2 class="dashboard-total-products">$<span>30,780</span></h2>
                     <span class="label label-success">Sales</span>Reviews
                     <div class="side-box">
                        <i class="ti-direction-alt text-success-color"></i>
                     </div>
                  </div>
-              </div>
+              </div> 
               <div class="col-lg-3 col-md-6">
                  <div class="card dashboard-product">
-                    <span>Products</span>
+                    <span>{user.usr_type ==='training-provider' ?'Courses' : 'Users'}</span>
                     <h2 class="dashboard-total-products">$<span>30,780</span></h2>
                     <span class="label label-danger">Sales</span>Reviews
                     <div class="side-box">
@@ -62,8 +67,8 @@ const DashboardPage = () => {
                  <div class="card">
                     <div class="user-block-2">
                        <img class="img-fluid" src="assets/assets/images/widget/user-1.png" alt="user-header"/>
-                       <h5>Josephin Villa</h5>
-                       <h6>Software Engineer</h6>
+                       <h5>{user.usr_firstname+' '+ user.usr_lastname }</h5>
+                       <h6>{user.usr_email}</h6>
                     </div>
                     <div class="card-block">
                        <div class="user-block-2-activities">
@@ -81,14 +86,14 @@ const DashboardPage = () => {
 
                        <div class="user-block-2-activities">
                           <div class="user-block-2-active">
-                             <i class="icofont icofont-ui-user"></i> Following
+                             <i class="icofont icofont-ui-user"></i> connections
                              <label class="label label-primary">485</label>
                           </div>
 
                        </div>
                        <div class="user-block-2-activities">
                           <div class="user-block-2-active">
-                             <i class="icofont icofont-picture"></i> Pictures
+                             <i class="icofont icofont-picture"></i> training courses
                              <label class="label label-primary">506</label>
                           </div>
                        </div>

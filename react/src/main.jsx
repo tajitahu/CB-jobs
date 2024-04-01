@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import {routes} from './router.jsx'; // Import your routes
 
+import './custom.css'
+
+import { Provider } from 'react-redux';
+import { ContextProvider } from './Context/ContextProvider';
+import { store } from './redux/store/store.jsx';
 function App() {
   const location = useLocation();
   
@@ -25,7 +30,7 @@ function App() {
       linkElement.href = '/public/assets/css/index.css';
     }
 
-    document.head.appendChild(linkElement);
+    document.head.appendChild(linkElement); 
 
     // Clean up the effect by removing the link element when the component is unmounted
     return () => {
@@ -61,8 +66,15 @@ function App() {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    
+      <Router>
+        <Provider store={store}>
+        <ContextProvider>
+          <App />
+          </ContextProvider>
+        </Provider>
+      </Router>
+    
+    
   </React.StrictMode>
 );

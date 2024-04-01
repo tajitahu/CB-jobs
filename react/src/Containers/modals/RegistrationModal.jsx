@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Modal, Button, Box } from '@mui/material';
-import { useModal } from '../../Context/ContextProvider';
+import { useStateContext } from '../../Context/ContextProvider';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
 const RegistrationModal = ({ open, onClose }) => {
   const [registrationType, setRegistrationType] = useState('');
-  const { modalOpen, closeModal } = useModal();
+  const { modalOpen, closeModal } = useStateContext();
   const navigate = useNavigate();
 
   const handleRegistration = (userType) => {
@@ -31,10 +31,10 @@ const RegistrationModal = ({ open, onClose }) => {
         borderRadius: '10px',
       }}
     >
-      <h4 className='mb-5'>Select your account type</h4>
+      <h4 className='mb-5'>Select account type</h4>
       <Box sx={{ textAlign: 'center' }}>
         <Button
-          sx={{ width: '60%', borderRadius: '60px', backgroundColor: '#5867dd', borderColor: '#5867dd' }}
+          sx={{ width: '60%', borderRadius: '60px', backgroundColor: '#5867dd', borderColor: '#5867dd',marginBottom:'20px' }}
           className='btn-block mb-2 signUpBtn'
           variant="contained"
           onClick={() => handleRegistration('EMPLOYER')}
@@ -42,7 +42,7 @@ const RegistrationModal = ({ open, onClose }) => {
           Employer
         </Button><br/>
         <Button
-          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#fbaa00', borderColor: '#eea200' }}
+          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#fbaa00', borderColor: '#eea200',marginBottom:'20px' }}
           className="btn-sucess mb-2 signUpBtn"
           variant="contained"
           onClick={() => handleRegistration('TRAINING PROVIDER')}
@@ -50,7 +50,7 @@ const RegistrationModal = ({ open, onClose }) => {
           Training Provider
         </Button><br/>
         <Button
-          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#34bfa3', borderColor: '#34bfa3' }}
+          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#34bfa3', borderColor: '#34bfa3',marginBottom:'20px' }}
           className="btn-warning mb-2 signUpBtn"
           variant="contained"
           onClick={() => handleRegistration('AGENT')}
@@ -58,7 +58,7 @@ const RegistrationModal = ({ open, onClose }) => {
           Agent/Jobcenter Africa
         </Button><br/>
         <Button
-          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#21253f', borderColor: '#444b73' }}
+          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#21253f', borderColor: '#444b73',marginBottom:'20px' }}
           className="btn-sucess mb-2 signUpBtn"
           variant="contained"
           onClick={() => handleRegistration('JOB SEEKER')}
@@ -66,7 +66,7 @@ const RegistrationModal = ({ open, onClose }) => {
           Job Seeker
         </Button><br/>
         <Button
-          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#e7bf6a', borderColor: '#e7bf6a' }}
+          sx={{ width: '60%', borderRadius: '60px',backgroundColor: '#e7bf6a', borderColor: '#e7bf6a',marginBottom:'20px' }}
           className="btn-sucess mb-2 signUpBtn"
           variant="contained"
           onClick={() => handleRegistration('FREELANCER')}

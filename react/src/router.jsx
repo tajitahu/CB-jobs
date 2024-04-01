@@ -1,6 +1,6 @@
 import HomepageLayout from './Components/Layouts/Homepage.jsx';
 import Homepage from './Components/Homepage.jsx';
-import { ContextProvider } from './Context/ContextProvider';
+
 import SignUpPage from "./Components/signup.jsx";
 import LoginPage from "./Components/login.jsx";
 import DashboardPage from "./Components/dashboardpage.jsx";
@@ -8,23 +8,23 @@ import NotFound from "./Components/404.jsx";
 import Blog from "./Components/blog.jsx";
 import ForgotPassword from "./Components/forgotpassword.jsx";
 import DashBoardLayout from "./Components/Layouts/DashBoardLayout.jsx";
-
+import GuestLayout from "./Components/Layouts/GuestLayout.jsx";
 // Define the routes array
 export const routes = [
     {
         path: '/',
         element: () => (
-            <ContextProvider>
+            
                 <HomepageLayout />
-            </ContextProvider>
+            
         ),
         children: [
             {
                 path: '/',
                 element: () => (
-                    <ContextProvider>
+                    
                         <Homepage />
-                    </ContextProvider>
+                    
                 )
             }
         ]
@@ -47,15 +47,21 @@ export const routes = [
     },
     {
         path: '/signup/:userType',
-        element: () => <SignUpPage />,
+        element: () =><GuestLayout>
+             <SignUpPage />
+        </GuestLayout>,
     },
     {
         path: '/login',
-        element: () => <LoginPage />,
+        element: () => <GuestLayout>
+            <LoginPage />
+        </GuestLayout>,
     },
     {
         path: '/restore-password',
-        element: () => <ForgotPassword />,
+        element: () => <GuestLayout>
+            <ForgotPassword />
+            </GuestLayout>,
     }
 ];
 

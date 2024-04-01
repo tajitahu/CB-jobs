@@ -16,7 +16,7 @@ export default function HomePageLayout(){
     };
 
     return (<div>
-    <header class="home-header" >
+    <header class="home-header" style={{zIndex:"10",backgroundColor:"white",textColor:"black"}}>
     <div class="def-width flex">
         <div class="logo repaint">
             <Link to="/">
@@ -30,16 +30,16 @@ export default function HomePageLayout(){
 
         <nav class="main-nav" id="main-nav">
             <ul>
-            <Link to="/login">
+            <Link to="/login" style={{color:"black",fontWeight:"bold"}}>
                 <li class="show-in-mob login login-js">Login</li>
             </Link> 
             </ul> 
             <div class="banner">
-                <div class="banner-title">Change your career <span class="broke-row"></span> Change your life</div>
+                <div class="banner-title" style={{color:"black",fontWeight:"bold"}}>Change your career <span class="broke-row"></span> Change your life</div>
                 <p>Make 2024 the Year You Get the Job <span class="broke-row"></span> You've Always Wanted</p>
                 <div class="home__lid-butn">
                     <span class="relative">
-                    <a href="/signup" class="butn butn-yellow">
+                    <a href="/signup" class="butn butn-yellow" style={{color:"black"}}>
                         <span class="showed-text">join us</span>
                     </a>
                         <img src="assets/images/pencil.png" alt="" class="pencil-bunner" />
@@ -54,10 +54,10 @@ export default function HomePageLayout(){
                             <path class="st0" d="M18.7,11.5c-0.4,0-0.8-0.4-0.8-0.8V4.9c0-0.4,0.4-0.8,0.8-0.8s0.8,0.4,0.8,0.8v5.8C19.5,11.1,19.1,11.5,18.7,11.5z"/></g><g><path class="st0" d="M1.4,18c-0.4,0-0.8-0.4-0.8-0.8v-1.9c0-1,0.5-1.9,1.3-2.4l3.9-2.5l0-1.7c0-0.2-0.1-0.3-0.2-0.4C5.4,7.9,5.2,7.3,5.2,6.8V4c0-2.2,1.8-4,4-4C9.6,0,10,0.4,10,0.8S9.6,1.6,9.2,1.6C7.9,1.6,6.8,2.7,6.8,4v2.8c0,0.2,0.1,0.3,0.2,0.4c0.3,0.4,0.5,0.9,0.5,1.4v1.7c0,0.6-0.3,1.1-0.8,1.4l-3.9,2.5c-0.4,0.2-0.6,0.7-0.6,1.1v1.9C2.2,17.6,1.9,18,1.4,18z"/>
                             <path class="st0" d="M17,18c-0.4,0-0.8-0.4-0.8-0.8v-1.9c0-0.4-0.2-0.9-0.6-1.1l-3.9-2.5c-0.5-0.3-0.8-0.8-0.8-1.4V8.7c0-0.5,0.2-1,0.5-1.4c0.1-0.1,0.2-0.3,0.2-0.4V4c0-1.3-1.1-2.4-2.4-2.4c-0.4,0-0.8-0.4-0.8-0.8S8.8,0,9.2,0c2.2,0,4,1.8,4,4v2.8c0,0.5-0.2,1-0.5,1.4c-0.1,0.1-0.2,0.3-0.2,0.4v1.7l3.9,2.6c0.8,0.5,1.3,1.4,1.3,2.4v1.9C17.8,17.6,17.4,18,17,18z" fill="#000"/></g></g>
                 </svg>
-                <Link to="/signup/agent">Register</Link>
+                <Link to="/signup/agent" style={{color:"black",fontWeight:"bold"}}>Register</Link>
             </div>
             <div class="login login-js repaint flex">
-            <Link to="/login">
+            <Link to="/login" style={{color:"black",fontWeight:"bold"}}>
                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      width="14" height="18" viewBox="0 0 14 18" style={{enableBackground:"new 0 0 14 18"}} xml:space="preserve"><g><path class="st0" d="M8.3,18H1.1c-0.4,0-0.8-0.4-0.8-0.8s0.4-0.8,0.8-0.8h7.1c2.1,0,3.8-1.7,3.8-3.8V5.4c0-2.1-1.7-3.8-3.8-3.8H1.1 c-0.4,0-0.8-0.4-0.8-0.8S0.7,0,1.1,0h7.1c3,0,5.4,2.4,5.4,5.4v7.1C13.7,15.5,11.2,18,8.3,18z"/>
                         <path class="st0" d="M7.9,9.8H1.1C0.7,9.8,0.3,9.4,0.3,9s0.4-0.8,0.8-0.8h6.8c0.4,0,0.8,0.4,0.8,0.8S8.3,9.8,7.9,9.8z"/><g>
@@ -77,7 +77,7 @@ export default function HomePageLayout(){
     </div>
         <div class="login-modal">
         <div class="login-modal__head">
-            <p>Log in to your account</p>
+            <p style={{color:"black",fontWeight:"bold"}}>Log in to your account</p>
         </div>
         <div class="login-modal__content">
     <form name="login" method="post" action="/login" class="">
@@ -96,12 +96,12 @@ export default function HomePageLayout(){
     </div>
 <div><div class="login-form__row login-form__bottom">
         <div class="flex">
-            <a href="/password-request">Forgot password?</a>
+            <a href="/password-request" style={{color:"black",fontWeight:"bold"}}>Forgot password?</a>
         </div>
         <button type="submit" id="login_submit" name="login[submit]" class="butn butn-green">
-        <span class="showed-text">Login</span>
+        <span class="showed-text" style={{color:"black",fontWeight:"bold"}}>Login</span>
     </button>
-        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        <p style={{color:"black",fontWeight:"bold"}}>Don't have an account? <a href="/signup">Sign Up</a></p>
     </div>
 </div></div>
 </form>
@@ -145,3 +145,4 @@ export default function HomePageLayout(){
     
     </div>)
 }
+
